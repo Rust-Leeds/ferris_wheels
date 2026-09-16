@@ -13,6 +13,14 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
+      - name: Install Linux dependencies
+        uses: ./.github/actions/install-linux-deps
+        with:
+          wayland: true
+          xkb: true
+          x264: true
+          fontconfig: true
+          
       - name: Install stable toolchain
         run: |
           rustup update stable
